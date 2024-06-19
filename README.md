@@ -9,12 +9,17 @@ The following steps were taken to deploy the web application to cloud:
 - Created a Docker image for this flask app.
 
 - Pushed the docker image to a repository in AWS ECR (Elastic Container Registry) using the URi of the ECR repository
+  ![alt text](ecr_push_commands.png)
 
 - Used the boto3 (AWS SDK Client) to interact with AWS through api calls.
 
 - Created a Kubernetes cluster. We created and selected a security group with access to the Kubernetes cluster.
+  ![alt text](kubernetes_cluster.png)
 
 - Once the cluster was up and ready, a node group was created with 2 nodes. We created an attached IAM role with corresponding policies for the Node group.
+
+![alt text](EKS-service-role.png)
+![alt text](EKS-cluster-nodes.png)
 
 - Since the app is a very lightweight application , t2.micro instances from AWS were used to create nodes.
 
